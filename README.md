@@ -1,1 +1,2 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/UkkT7Pi_)
+# Week 6 - RESTful Groceries
+- As discussed in the video the current status of the app should do the CRUD operation and have RESTful services for persisting data.
