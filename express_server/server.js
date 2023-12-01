@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const cors = require('cors');
 const dotenv = require('dotenv');
 
 // load environment variables
@@ -12,6 +13,7 @@ const serverPort = process.env.SERVER_PORT || 8080;
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // DB
 mongoose.connect(`${mongoURL}:${dbPort}/groceries`, 
@@ -59,7 +61,7 @@ app.put('/api/groceries/:id', async (req, res) => {
     { 
         name: req.body.name,
         quantity: req.body.quantity
-    }, { new: true });
+    }, { new: false });
   
     res.send(grocery);
 });
