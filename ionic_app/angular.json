@@ -54,7 +54,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "sourceMap": true,
+              "sourceMap": false,
               "outputHashing": "all"
             },
             "development": {
