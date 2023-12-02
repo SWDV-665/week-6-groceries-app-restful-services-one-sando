@@ -1,4 +1,4 @@
-import { Component, ChangeDetectorRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonItem, IonItemOptions, IonItemOption, IonItemSliding, IonIcon, IonFab, IonFabButton, IonButton } from '@ionic/angular/standalone';
 import { CommonModule } from '@angular/common';
 import { addIcons } from 'ionicons';
@@ -7,7 +7,6 @@ import { ToastController } from '@ionic/angular';
 import { GroceryServiceService } from '../grocery-service.service';
 import { InputDialogServiceService } from '../input-dialog-service.service';
 import { Share } from '@capacitor/share';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-grocery',
@@ -22,7 +21,7 @@ export class GroceryPage  {
   title = 'Grocery List'
   items: any = []
 
-  constructor(private toastController: ToastController, private groceryService: GroceryServiceService, private inputDialogService: InputDialogServiceService, private cdRef: ChangeDetectorRef) {
+  constructor(private toastController: ToastController, private groceryService: GroceryServiceService, private inputDialogService: InputDialogServiceService) {
     addIcons({ trash, create, add, share });
 
     groceryService.dataChanged$.subscribe((dataChanged: boolean) => {
@@ -42,20 +41,17 @@ export class GroceryPage  {
     console.log('Removing ', item)
     this.groceryService.deleteItem(item)
     this.presentToast(`${item.name} has been deleted.`);
-    this.cdRef.detectChanges();
   }
 
   editItem(item: any) {
     console.log('Editing ', item._id)
     this.inputDialogService.promptAlert(item, item._id)
     this.presentToast(`${item.name} has been edited.`);
-    this.cdRef.detectChanges();
   }
 
   addItem() {
     console.log('Adding Item')
     this.inputDialogService.promptAlert()
-    this.cdRef.detectChanges();
   }
 
   async shareItem(item: any, index: number) {

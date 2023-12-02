@@ -47,8 +47,4 @@ export class GroceryServiceService {
       this.dataChangeSubject.next(true);
     });
   }
-
-  handleError(error: HttpErrorResponse) {
-    console.log(error);
-  }
 }

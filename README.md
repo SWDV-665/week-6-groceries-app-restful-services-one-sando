@@ -33,7 +33,7 @@ curl --header "Content-Type: application/json" \
 # update
 curl --header "Content-Type: application/json" \
   --request PUT \
-  --data '{"name":"Bread","quantity":"20000"}' \
+  --data '{"name":"Bread","quantity":"200"}' \
   http://localhost:8080/api/groceries/6568084ea9d3b72c54f01a6f
 
 # delete
@@ -42,3 +42,15 @@ curl --header "Content-Type: application/json" \
   http://localhost:8080/api/groceries/6568032a2937fd83cb62c17c
 ```
 
+## Run Ionic
+```bash
+cd ionic_app
+npm install
+ionic serve
+```
+
+## Examples:
+![post](images/screenshot_post.png)
+![get](images/screenshot_get.png)
+![put](images/screenshot_put.png)
+![delete](images/screenshot_delete.png)
